@@ -24,11 +24,11 @@ var subsets = function(nums) {
 var subsets2 = function(nums) {
     let arr = [[]]
     for (let i = 0; i < nums.length;i++) {
-        arr.map((item, index) => {
+        arr.map((item) => {
             arr.push(item.concat(nums[i]))
         })
     }
     return arr
 };
 
-console.log(subsets2([1,2, 3])) 
+console.log(subsets2([1, 2])) 

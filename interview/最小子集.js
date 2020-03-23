@@ -8,7 +8,7 @@ n = 20      3
 n = 100    -1
 n = 5        1
 */
-function text(arr, n) {
+function subsets2(arr, n) {
     let len = -1
     for (let i = 1; i < arr.length; i++) {
         for (let start = 0; start < arr.length; start++) {
@@ -25,3 +25,21 @@ function text(arr, n) {
     
     return len
 }
+
+
+function subsets1(arr, n) {
+    let len = -1
+    for (let start = 0; start < arr.length; start++) {
+        let sum = arr[start]
+        for (let end = start + 1; end < arr.length; end++) {
+            sum = sum + arr[end]
+            if (sum >= n) {
+                len = len < (end - start) ? end - start : len;
+                break;
+            }
+        }
+    }
+    return len
+}
+
+console.log(subsets1([5, 7, 8, 3, 9, 2, 8, 6, 7, 5], 16))
