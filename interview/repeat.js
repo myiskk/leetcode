@@ -39,8 +39,17 @@ function repeate3(str, time) {
   return result + repeate3(str, left);
 }
 
-function repeate4(str, time) {
-    // return 
-    // 把repeater3 的中间计算加一个缓存 -。-，以避免重复计算
-    return '';
+const repeat4 = (content, n) => {
+  if (content === '') {
+      return ''
+  }
+  let str = content
+  let time = Math.floor(Math.log2(n))
+  let left = n - Math.pow(2, time)
+  while (time--) {
+      str += str
+  }
+  let total = left === 0 ? str : str + repeat4(content, left)
+  return total
 }
+repeat4('abc', 6)
